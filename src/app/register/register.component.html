@@ -1,0 +1,115 @@
+<div class="reg pic">
+  <div class="row" style="margin: 0">
+    <div class="col s12 m3 offset-m8 outline">
+      <h4 class="title">Register</h4>
+      <form name="myForm" (submit)="onSubmit()" #f="ngForm">
+        <div class="row">
+          <div class="input-field col m6" style="padding: 0px; padding-right: 20px;">
+            <input required type="text" id="firstname" name="firstName" [(ngModel)]='user.firstName' #firstName="ngModel">
+            <label id="label" for="firstname">First Name</label>
+            <div class="error" *ngIf="firstName.errors && firstName.dirty">*First Name Is Required</div>
+          </div>
+          <div class="input-field col m6" style="padding: 0px;">
+            <input required type="text" id="lastname" name="lastName" [(ngModel)]='user.lastName' #lastName="ngModel">
+            <label id="label" for="lastname">Last Name</label>
+            <div class="error" *ngIf="lastName.errors && lastName.dirty">*Last Name Is Required</div>
+          </div>
+        </div>
+        <div class="input-field">
+          <input required type="text" name="email" [(ngModel)]='user.email' id="email" #email="ngModel">
+          <label for="email">Email</label>
+          <div class="error" *ngIf="email.errors && email.dirty">*Email Is Required and must be proper format</div>
+        </div>
+        <div class="input-field">
+          <input required  type="password" name="password" [(ngModel)]='user.password' id="password" #password="ngModel">
+          <label for="password">Password</label>
+          <div class="error" *ngIf="password.invalid && password.dirty">*Password required. Must Be at least 6 Characters</div>
+        </div>
+        <div class="input-field">
+          <input required type="password" id="passconf" name="passwordconf" [(ngModel)]='user.passwordconf' #passwordconf="ngModel">
+          <label for="passconf">Password Confirmation</label>
+          <div class="error" *ngIf="user.password != user.passwordconf && passwordconf.dirty">*Password Confirm Must Match Password</div>
+        </div>
+        <div class="input-field">
+          <input required type="text" name="street" id="street" [(ngModel)]='user.street' #street="ngModel">
+          <label for="street">Street</label>
+          <div class="error" *ngIf="street.errors && street.dirty">*Street Is Required</div>
+        </div>
+        <div class="input-field">
+          <input required type="text" name="unit" id="unit" [(ngModel)]='user.unit' #unit="ngModel">
+          <label for="unit">Unit/Apt</label>
+          <div class="error" *ngIf="unit.errors && unit.dirty">*Unit Is Required</div>
+        </div>
+        <div class="row">
+          <div class="input-field col m6" style="padding: 0px; padding-right: 20px;">
+            <input required type="text" name="city" id="city" [(ngModel)]='user.city' #city="ngModel">
+            <label id="label" for="city">City</label>
+            <div class="error" *ngIf="city.errors && city.dirty">*City Is Required</div>
+          </div>
+          <div class="input-field col m6" style="padding: 0px;">
+            <select class="browser-default" required name="state" [(ngModel)]='user.state' #state="ngModel">
+                      <option value="" disabled selected>State</option>
+                      <option value="AL">Alabama</option>
+                      <option value="AK">Alaska</option>
+                      <option value="AZ">Arizona</option>
+                      <option value="AR">Arkansas</option>
+                      <option value="CA">California</option>
+                      <option value="CO">Colorado</option>
+                      <option value="CT">Connecticut</option>
+                      <option value="DE">Delaware</option>
+                      <option value="DC">District Of Columbia</option>
+                      <option value="FL">Florida</option>
+                      <option value="GA">Georgia</option>
+                      <option value="HI">Hawaii</option>
+                      <option value="ID">Idaho</option>
+                      <option value="IL">Illinois</option>
+                      <option value="IN">Indiana</option>
+                      <option value="IA">Iowa</option>
+                      <option value="KS">Kansas</option>
+                      <option value="KY">Kentucky</option>
+                      <option value="LA">Louisiana</option>
+                      <option value="ME">Maine</option>
+                      <option value="MD">Maryland</option>
+                      <option value="MA">Massachusetts</option>
+                      <option value="MI">Michigan</option>
+                      <option value="MN">Minnesota</option>
+                      <option value="MS">Mississippi</option>
+                      <option value="MO">Missouri</option>
+                      <option value="MT">Montana</option>
+                      <option value="NE">Nebraska</option>
+                      <option value="NV">Nevada</option>
+                      <option value="NH">New Hampshire</option>
+                      <option value="NJ">New Jersey</option>
+                      <option value="NM">New Mexico</option>
+                      <option value="NY">New York</option>
+                      <option value="NC">North Carolina</option>
+                      <option value="ND">North Dakota</option>
+                      <option value="OH">Ohio</option>
+                      <option value="OK">Oklahoma</option>
+                      <option value="OR">Oregon</option>
+                      <option value="PA">Pennsylvania</option>
+                      <option value="RI">Rhode Island</option>
+                      <option value="SC">South Carolina</option>
+                      <option value="SD">South Dakota</option>
+                      <option value="TN">Tennessee</option>
+                      <option value="TX">Texas</option>
+                      <option value="UT">Utah</option>
+                      <option value="VT">Vermont</option>
+                      <option value="VA">Virginia</option>
+                      <option value="WA">Washington</option>
+                      <option value="WV">West Virginia</option>
+                      <option value="WI">Wisconsin</option>
+                      <option value="WY">Wyoming</option>
+                  </select>
+          </div>
+          <div class="error" *ngIf="state.errors && state.dirty">*State Is Required</div>
+        </div>
+        <button [disabled]="!f.valid || user.password != user.passwordconf" style="margin-top: 20px; width: 100%; height: 50px;"
+          class="btn waves-effect waves-light orange lighten-2" type="submit">REGISTER</button>
+      </form>
+      <div class="row">
+        <p class="link col m12">Already registered? Click here to <span class="span" [routerLink]="['/']">login</span></p>
+      </div>
+    </div>
+  </div>
+</div>

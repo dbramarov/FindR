@@ -1,0 +1,26 @@
+<div class="grey lighten-3">
+    <div class="container white">
+        <div class="row">
+            <div class="col m10 offset-m1" style="margin-top: 30px;">
+                <h5><span class="bold">Name:</span> {{currentUser.firstName}} {{currentUser.lastName}}</h5>
+                <h5><span class="bold">Email:</span> {{currentUser.email}}</h5>
+                <h5><span class="bold">User since:</span> {{currentUser.createdAt | date:'longDate'}}</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col m5 offset-m1">
+                <h5 style="margin-bottom: 20px;"><span class="bold">Location:</span></h5>
+                <iframe width="100%" height="500" frameborder="1" style="margin-bottom: 30px; border-radius: 25px;"
+                    [src]="sanitize()" allowfullscreen>
+                </iframe>
+            </div>
+            <div class="col m5">
+                <h5 style="margin-bottom: 20px; margin-left: 40px;"><span class="bold">Recent Searches:</span></h5>
+                <div class="outline hoverable">
+                    <h5 *ngFor="let search of searches">{{search}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

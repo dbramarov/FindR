@@ -1,0 +1,64 @@
+/* * {
+    outline: 1px dashed red;
+} */
+.container {
+    min-height: 1100px;
+}
+
+.grey {
+    height: 100%;
+}
+
+.font {
+    font-family: 'Dancing Script', cursive;
+    font-size: 5em;
+}
+
+input[type=text]:focus:not([readonly]) {
+    border-bottom: #feb155;
+    box-shadow: 0 1px 0 0 #feb155;
+}
+
+.input-field input[type=text]:focus + label {
+    color: #feb155;
+}
+
+.desc {
+    font-size: 1.5em;
+    /* font-family: "Times New Roman", Times, serif; */
+    color: rgba(70, 70, 70, 0.87);
+    
+}
+
+.pics {
+    width: 100%; 
+    border-radius: 25px;
+    border: 3px solid rgba(70, 70, 70, 0.87);
+    margin-top: 45px;
+}
+
+.error {
+    border: 3px solid rgba(255, 0, 0, 0.64);
+    background-color: rgba(255, 0, 0, 0.63);
+    color: white;
+    border-radius: 25px;
+    padding: 15px;
+    width: 60%;
+    margin: auto;
+}
+
+.homeDesc {
+    background-color: rgba(195, 195, 195, 0.14);
+    padding: 7px;
+    border-radius: 25px;
+    width: 70%;
+    margin: auto;
+}
+
+.border {
+    border-radius: 25px;
+}
+
+.cent {
+    padding: 45px;
+}

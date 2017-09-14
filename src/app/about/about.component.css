@@ -1,0 +1,26 @@
+/* * {
+    outline: 1px dashed red;
+} */
+.container {
+    min-height: 800px;
+    /* font-family: "Times New Roman", Times, serif; */
+    color: rgba(70, 70, 70, 0.87);
+    margin-bottom: 40px;
+    padding-bottom: 60px;
+}
+
+.grey {
+    height: 100%;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.outline {
+    border: 2px solid rgba(0, 0, 0, 0.21);
+    border-radius: 25px;
+    padding: 25px;
+    height: 500px;
+    margin-left: 40px;
+}

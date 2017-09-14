@@ -1,0 +1,69 @@
+<div class="grey lighten-3">
+    <div class="container white">
+        <div class="row">
+            <div class="col m10 offset-m1">
+                <h3 class="center font">Project FindR</h3>
+                <div class="homeDesc">
+                    <h5 class="center desc">Enter email adress below to lookup information about an individual.</h5>
+                    <h5 class="center desc"><i style="color:#feb155">*Personal Email Adresses Work Best!</i></h5>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col m10 offset-m1">
+                <form>
+                    <div class="input-field">
+                        <label for="ser">Search Email:</label>
+                        <input type="text" id="ser" name="search" [(ngModel)]="search">
+                        <button style="width: 100%;" class="btn waves-effect waves-light orange lighten-2" (click)="searchEmail()">SEARCH</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+       <div class="row" style="margin-top: 45px;">
+            <div class="col m8 offset-m2">
+                <div *ngIf="info != null" class="card hoverable border">
+                    <div class="row">
+                        <div class="col m4 offset-m4">
+                            <img *ngIf="info.photos" src="{{info.photos[0].url}}" class="pics">
+                        </div>
+                    </div>
+                    <div class="card-content cent">
+                        <div *ngIf="info.contactInfo">
+                            <h5 *ngIf="info.contactInfo.fullName; else nameAlt"><strong>Name:</strong> {{info.contactInfo.fullName}}</h5>
+                            <ng-template #nameAlt><h5><strong>Name:</strong> Not Available</h5></ng-template>
+                        </div>
+                        <div *ngIf="info.demographics">
+                            <h5 *ngIf="info.demographics.ageRange; else ageAlt"><strong>Age range:</strong> {{info.demographics.ageRange}}</h5>
+                            <ng-template #ageAlt><h5><strong>Age Range:</strong> Not Available</h5></ng-template>                            
+                        </div>
+                        <div *ngIf="info.demographics">
+                            <h5 *ngIf="info.demographics.gender; else genderAlt"><strong>Gender:</strong> {{info.demographics.gender}}</h5>
+                            <ng-template #genderAlt><h5><strong>Gender:</strong> Not Available</h5></ng-template>                                                        
+                        </div>
+                        <div *ngIf="info.organizations">
+                            <h5 *ngIf="info.organizations[0].name; else orgAlt"><strong>Organization:</strong> {{info.organizations[0].name}}</h5>
+                            <ng-template #orgAlt><h5><strong>Organization:</strong> Not Available</h5></ng-template>                                                                                    
+                        </div>
+                        <div *ngIf="info.organizations">
+                            <h5 *ngIf="info.organizations[0].title; else titleAlt"><strong>Position:</strong> {{info.organizations[0].title}} (<i>Since {{info.organizations[0].startDate}})</i></h5>
+                            <ng-template #titleAlt><h5><strong>Position:</strong> Not Available</h5></ng-template>                                                                                                                
+                        </div>
+                        <h5 *ngIf="info.socialProfiles"><strong>Bio:</strong> {{findBio()}}</h5>
+                        <div *ngIf="info.demographics">
+                            <h5 *ngIf="info.demographics.locationDeduced; else locationAlt"><strong>Location:</strong> {{info.demographics.locationDeduced.normalizedLocation}}</h5>
+                            <ng-template #locationAlt><h5><strong>Location:</strong> Not Available</h5></ng-template>                                                                                                                                            
+                        </div>
+                        <div *ngIf="info.likelihood">
+                            <h5 *ngIf="info.likelihood else likeAlt"><strong>Match Likelihood:</strong> {{info.likelihood | percent}}</h5>
+                            <ng-template #likeAlt><h5><strong>Match Likelihood:</strong> Not Available</h5></ng-template>                                                                                                                                                                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="err" class="error hoverable">
+            <h3 class="center">No Person Found With This Email!</h3>
+        </div>
+    </div>
+</div>
