@@ -5,7 +5,7 @@
           
             <form name="myForm" (ngSubmit)="onSubmit(f)" #f="ngForm">
                 <div class="input-field">
-                    <input type="email" name="email" [(ngModel)]='user.email' id="email" #email="ngModel" email required>
+                    <input type="email" name="email" [(ngModel)]='user.email' id="email" #email="ngModel" required>
                     <label for="email">Email</label>
                     <div class="error" *ngIf="emailErrors">*Email not found</div>
                     <div class="error" *ngIf="email.invalid && email.dirty">*Please enter a valid email!</div>                    
