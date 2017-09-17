@@ -11,11 +11,11 @@
         </div>
         <div class="row">
             <div class="col m10 offset-m1">
-                <form>
+                <form (submit)="searchEmail()" #f="ngForm">
                     <div class="input-field">
                         <label for="ser">Search Email:</label>
-                        <input type="text" id="ser" name="search" [(ngModel)]="search">
-                        <button style="width: 100%;" class="btn waves-effect waves-light orange lighten-2" (click)="searchEmail()">SEARCH</button>
+                        <input type="text" id="ser" name="search" [(ngModel)]="search" email required>
+                        <button  [disabled]="!f.valid" style="width: 100%;" class="btn waves-effect waves-light orange lighten-2" type="submit">SEARCH</button>
                     </div>
                 </form>
             </div>
